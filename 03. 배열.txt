@@ -14,3 +14,31 @@ JVM에서는 모든 배열의 길이를 별도로 관리, 배열이름.length를
 for문으로 보통 출력을 해왔지만 자바에서는
 Arrays.toString(배열이름) 메소드를 사용하여 출력가능
 배열의 모든 값을 문자열 형태로 반환해주는 메소드임. 
+
+만약 문자가 아닌 배열이름을 바로 출력하면? C에서는 배열이름은 첫 인덱스의 주소를 나타내므로 주소가 출력
+하지만 자바에서는 '타입@주소'형식으로 출력
+
+초기화를 안해주면 0으로 채워짐
+
+4)배열의 복사
+System.arraycopy()를 이용한 배열의 복사
+System.arraycopy(num,0,tmp,0,num.length);
+               (복사할 배열,처음 인덱스,붙여넣을 배열,처음 인덱스,복사할 배열의 길이)
+
+*String 클래스
+1)String 배열 초기화
+String[] name = new String[]{"Yoon","Kim","Lee"};
+String[] name = {"Yoon","Kim","Lee"}; //new String[]을 생략가능
+
+2)String 배열과 char 배열의 차이점
+String은 char보다 더 편리한 메소드(기능)를 제공
+String str= new String();
+
+str.charAt(0) 문자열에서 0번째 인덱스 반환
+str.substring(1,4) 1이상 4미만 인덱스 반환
+str.equals("abc") 문자열의 내용과 비교하여 같으면 true 다르면 false 반환
+
+char[] chArr = {'A','B','C'};
+String str = new String(chArr); //char -> String
+char[] tmp = str.tocharArray() //String -> char
+---------------------------------------------------------------------209페이지 까지 공부
