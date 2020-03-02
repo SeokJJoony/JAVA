@@ -1,0 +1,25 @@
+*입출력 (C와 다른 형식이기 때문에 정리)
+1)출력구문
+SYSTEM.out.print("내가 쓸 문장" + 변수);
+변수위치에 변수가 아닌 문자가 들어오면 문자열로 간주하고 그대로 출력
+
+2)입력구문
+스캐너 패키지 호출
+import java.util.Scanner;
+
+인스턴스 생성
+Scanner sc = new Scanner(System.in);
+
+인스턴스 삭제
+sc.close();
+
+일반 문자 입력
+sc.next();
+sc.nextLine();
+
+정수 입력
+sc.nextInt(); 다른 자료형도 뒤에 자료형이름만 바꿔주면됨
+sc.nextInt(10); 10미만의 숫자중에 난수 입력
+
+문자 입력
+sc.next().charAt();
