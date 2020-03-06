@@ -70,6 +70,18 @@ ex) int[][] score = new int[5][];
     score[0] = new int[4]; // 원하는 길이 만큼 배열 생성
     score[1] = new int[3]; 
 
+*다차원 배열의 활용
+예제 5-20) i+'0': 숫자를 문자로 변환한다는 뜻
+   반대로   i-'0': 문자를 숫자로 변환
+System.out.println(board[i]) 1차원 배열의 참조변수를 프린트-> 문자형식의 2차원 배열이기 때문에 문자열이 출력
 
+예제 5-21) 5x5 빙고판에 1~25까지 입력하려면 i * size +j +1 -> i로 5배수 씩 행 변경 j로 열 변경
+ math.random() *size  //1~5까지의 난수
+ Integer.parseInt(문자열) // 숫자로 된 문자열을 숫자로 변환
+ 2중 for문을 탈출하기 위해 break outer; 사용
+ 
+예제 5-22) final -> 상수화 (C에서는 const)
 
+예제 5-23) next() / nextLine() 스페이스바를 인식하여 넘어감/ 엔터를 인식하여 넘어감
+String 객체.equals(문자열) 스트링 객체 내용과 문자열과 비교하여 1 0 리턴 
 
