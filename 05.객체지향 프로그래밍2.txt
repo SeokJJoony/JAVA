@@ -255,3 +255,116 @@ class FireEngine extends Car{
 
 ****무조건 조상이 왼쪽 자손이 오른쪽 조상이 조상 인스턴스를 참조하고 있다면 자손에 형변환할 수 없음!!!
 -----------------------------------------------------------------자바의 정석 361p
+
+*instance of 연산자
+참조변수가 참조하고 있는 인스턴스의 실제 타입을 알아보기 위한 연산자
+형변환이 가능한가?를 연산하는 연산자
+
+*참조변수와 인스턴스의 연결
+조상 타입의 참조변수와 자손 타입의 참조변수의 차이는 멤버 개수
+만약 조상 클래스와 자손클래스의 멤버 변수의 이름이 동일하다면
+참조변수의 타입에 따라 조상클래스의 멤버인지 자손클래스의 멤버가 실행되는지
+결정됨
+
+package object;
+
+public class Object {
+
+	public static void main(String[] args) {
+		Parent p;
+		Child c;
+		p = new Parent();
+		c = new Child();
+		System.out.println("p.x="+p.x);
+		p.method();
+		System.out.println("c.x="+c.x);
+		
+		c.method();
+	}
+}
+
+class Parent{
+	int x =100;
+	void method() {
+		System.out.println("Parent Method");
+	}
+}
+
+class Child extends Parent{
+	int x =200;
+	void method() {
+		System.out.println("x="+x);
+		System.out.println("super.x="+super.x);
+		System.out.println("this.x="+this.x);
+	}
+}
+
+참조변수 super와 this로 구분할 수 있다.
+
+*매개변수의 다형성
+매개변수 또한 부모 참조변수로 선언하여 자손타입의 어떤 것이나 매개변수로 받아 들일 수 있음
+
+package object;
+
+class product{
+	int price;
+	int bonusPoint;
+	
+	product(int price)
+	{
+		this.price = price;
+		this.bonusPoint = (int)(price /10.0);
+	}
+}
+
+class Tv extends product{
+	Tv(){
+		super(100);
+	}
+	
+	public String toString() {
+		return "TV";
+	}
+}
+
+class Computer extends product{
+	Computer(){
+		super(200);
+	}
+	public String toString() {
+		return "Com";
+	}
+}
+
+class Buyer{
+	int money = 1000;
+	int bonusPoint = 0;
+	
+	void buy(product p) {
+		if(money<p.price)
+		{
+			System.out.println("잔액이 부족합니다.");
+			return;
+		}
+		
+		money -= p.price;
+		bonusPoint += p.bonusPoint;
+		System.out.println(p+"을 구입하셨습니다.");
+		
+	}
+}
+
+public class Object {
+
+	public static void main(String[] args) {
+		Buyer b = new Buyer();
+		b.buy(new Tv());
+		b.buy(new Computer());
+		System.out.println("현재 남은 잔액은 "+b.money+"원입니다.");
+		System.out.println("현재 보너스는"+b.bonusPoint+"점입니다.");
+	}
+}
+
+
+
+
